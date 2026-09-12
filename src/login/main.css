@@ -1,0 +1,16 @@
+:root {
+    --visi-bg: #0B0E12;
+    --visi-accent: #BE5327;
+}
+
+.visi-logo {
+    max-height: 56px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.visi-login-bg {
+    background: var(--visi-bg);
+    min-height: 100vh;
+}
