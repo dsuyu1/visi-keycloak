@@ -4,7 +4,6 @@ import type { KcContext } from "./KcContext";
 import { useI18n } from "./i18n";
 import DefaultPage from "keycloakify/login/DefaultPage";
 import Template from "./Template";
-import logoUrl from "./assets/logo.png";
 import "./main.css";
 
 const UserProfileFormFields = lazy(
@@ -41,5 +40,6 @@ export default function KcPage(props: { kcContext: KcContext }) {
 }
 
 const classes = {
-	kcBodyClass: "visi-login-bg"
+    kcBodyClass: "visi-login-bg",
+    kcLoginClass: "visi-login-page"
 } satisfies { [key in ClassKey]?: string };
