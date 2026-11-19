@@ -1,58 +1,40 @@
-<p align="center">
-    <i>🚀 <a href="https://keycloakify.dev">Keycloakify</a> v11 starter 🚀</i>
-    <br/>
-    <br/>
-</p>
+# VISI sign-in theme
 
-# Quick start
+The Keycloak login theme for `id.vaqueroisi.org`. It's built with [Keycloakify](https://keycloakify.dev) on the
+[shadcn/ui + Tailwind starter](https://docs.keycloakify.dev/starter-themes/shadcn-ui-tailwind)
+([`@oussemasahbeni/keycloakify-login-shadcn`](https://github.com/Oussemasahbeni/keycloakify-shadcn-starter)).
+
+The theme keeps the name `keycloakify-starter`, so the realm's login theme setting doesn't change when a new build is deployed.
+
+## What's VISI's
+
+Most files under `src/` are copied in from the npm package by `npm install` (`keycloakify sync-extensions`) and are gitignored. `src/.gitignore` lists the files we own:
+
+| File | Change |
+| --- | --- |
+| `login/components/Template/layouts/TwoColumnLayout.tsx` | The photo fills the left half, with the logo, app name and welcome line over it. The form is on the right. |
+| `login/components/Template/TemplateContent.tsx` | The logo block above the form (shown below `lg`) uses the app name, not the realm name. |
+| `login/components/Template/theme/Themes.ts` | The `orange` preset is VISI orange, `#f4572d`. |
+| `login/i18n.ts` | The welcome line, and "Sign in" instead of "Login". |
+
+To change another file, take ownership of it first, for example `npx keycloakify own --path login/pages/login/Form.tsx`.
+
+The look is set in `vite.config.ts` as defaults for the `SHADCN_THEME_*` settings: logo, app name, layout, side image, colour preset, base palette, radius and font. Setting an environment variable with the same name on the Keycloak container overrides a default without a rebuild. Files in `public/` (the logo and the photo) are referenced as `%BASE_URL%/<file>`.
+
+## Develop
 
 ```bash
-git clone https://github.com/keycloakify/keycloakify-starter
-cd keycloakify-starter
-yarn install # Or use an other package manager, just be sure to delete the yarn.lock if you use another package manager.
+npm install
+npm run dev          # the login page with mock data
+npm run storybook    # every page, with toolbar switches for layout, colour and font
 ```
 
-# Testing the theme locally
-
-[Documentation](https://docs.keycloakify.dev/testing-your-theme)
-
-# How to customize the theme
-
-[Documentation](https://docs.keycloakify.dev/css-customization)
-
-# Building the theme
-
-You need to have [Maven](https://maven.apache.org/) installed to build the theme (Maven >= 3.1.1, Java >= 7).  
-The `mvn` command must be in the $PATH.
-
--   On macOS: `brew install maven`
--   On Debian/Ubuntu: `sudo apt-get install maven`
--   On Windows: `choco install openjdk` and `choco install maven` (Or download from [here](https://maven.apache.org/download.cgi))
+## Build and deploy
 
 ```bash
 npm run build-keycloak-theme
 ```
 
-Note that by default Keycloakify generates multiple .jar files for different versions of Keycloak.  
-You can customize this behavior, see documentation [here](https://docs.keycloakify.dev/features/compiler-options/keycloakversiontargets).
+This needs Maven (`mvn`) on the PATH. It writes `dist_keycloak/keycloak-theme-for-kc-all-other-versions.jar`, the jar for Keycloak 26.
 
-# Initializing the account theme
-
-```bash
-npx keycloakify initialize-account-theme
-```
-
-# Initializing the email theme
-
-```bash
-npx keycloakify initialize-email-theme
-```
-
-# GitHub Actions
-
-The starter comes with a generic GitHub Actions workflow that builds the theme and publishes
-the jars [as GitHub releases artifacts](https://github.com/keycloakify/keycloakify-starter/releases/tag/v10.0.0).  
-To release a new version **just update the `package.json` version and push**.
-
-To enable the workflow go to your fork of this repository on GitHub then navigate to:
-`Settings` > `Actions` > `Workflow permissions`, select `Read and write permissions`.
+To deploy, copy the jar to `/opt/vaquero/providers/visi-theme.jar` on CT 100 (back up the old one first), then run `docker compose restart keycloak` in `/opt/vaquero`.
