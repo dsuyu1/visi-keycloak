@@ -101,10 +101,15 @@ export function TemplateContent(props: TemplateContentProps) {
                         brandingVisibilityClassName
                     )}
                 >
-                    <div className="flex items-center gap-3 mb-4 ">
-                        <img src={logoWhiteUrl} className="size-14 dark:hidden" />
+                    {/* VISI: the logo block links back to the VISI site. */}
+                    <a
+                        href={kcContext.properties.VISI_HOME_URL || "https://visiutrgv.org/"}
+                        className="flex items-center gap-3 mb-4 rounded-md outline-offset-4 hover:opacity-90 focus-visible:outline-2 focus-visible:outline-ring"
+                    >
+                        <img src={logoWhiteUrl} alt="" className="size-14 dark:hidden" />
                         <img
                             src={logoDarkUrl}
+                            alt=""
                             className="size-14 hidden dark:inline-block"
                         />
                         {/* VISI: the app name, not the realm name ("vaquero"). */}
@@ -113,7 +118,7 @@ export function TemplateContent(props: TemplateContentProps) {
                                 realm.displayName ||
                                 realm.name}
                         </span>
-                    </div>
+                    </a>
                 </div>
 
                 <CardTitle>

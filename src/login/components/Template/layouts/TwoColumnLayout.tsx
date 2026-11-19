@@ -27,6 +27,8 @@ export function TwoColumnLayout(props: { content: ReactNode; logoUrl: string }) 
         kcContext.properties.SHADCN_THEME_APP_NAME ||
         kcContext.realm.displayName ||
         kcContext.realm.name;
+    // VISI: the logo and name link back to the VISI site.
+    const homeUrl = kcContext.properties.VISI_HOME_URL || "https://visiutrgv.org/";
 
     return (
         <div className="grid min-h-svh lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
@@ -44,10 +46,13 @@ export function TwoColumnLayout(props: { content: ReactNode; logoUrl: string }) 
                 />
 
                 <div className="relative z-10 flex h-full flex-col justify-between p-10 text-white xl:p-14">
-                    <div className="flex items-center gap-3">
+                    <a
+                        href={homeUrl}
+                        className="flex w-fit items-center gap-3 rounded-md outline-offset-4 hover:opacity-90 focus-visible:outline-2 focus-visible:outline-white"
+                    >
                         <img src={logoUrl} alt="" className="size-11" />
                         <span className="text-lg font-semibold tracking-tight">{appName}</span>
-                    </div>
+                    </a>
 
                     <p className="max-w-md text-2xl font-medium leading-snug tracking-tight text-white/95 xl:text-3xl">
                         {msg("welcomeMessage")}

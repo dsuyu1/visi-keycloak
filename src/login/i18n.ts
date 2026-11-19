@@ -14,7 +14,7 @@ const { I18nProvider, useI18n } = i18nBuilder
     .withThemeName<ThemeName>()
     .withCustomTranslations({
         en: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Sign in to your account",
             registerTitle: "Register a new account",
             noAccount: "Don't have an account?",
@@ -31,7 +31,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Confirm your password"
         },
         ar: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "تسجيل الدخول إلى حسابك",
             registerTitle: "تسجيل حساب جديد",
             doRegister: "إنشاء حساب",
@@ -48,7 +48,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "أكد كلمة المرور"
         },
         ca: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Inicieu sessió al vostre compte",
             registerTitle: "Registrar un nou compte",
             noAccount: "No tens un compte?",
@@ -66,7 +66,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Confirmeu la vostra contrasenya"
         },
         cs: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Přihlaste se ke svému účtu",
             registerTitle: "Zaregistrovat nový účet",
             noAccount: "Nemáte účet?",
@@ -83,7 +83,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Potvrďte své heslo"
         },
         da: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Log ind på din konto",
             registerTitle: "Registrer en ny konto",
             noAccount: "Har du ikke en konto?",
@@ -100,7 +100,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Bekræft din adgangskode"
         },
         de: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "In Ihrem Konto anmelden",
             registerTitle: "Neues Konto registrieren",
             noAccount: "Haben Sie noch kein Konto?",
@@ -118,7 +118,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Passwort bestätigen"
         },
         el: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Σύνδεση στον λογαριασμό σας",
             registerTitle: "Εγγραφή νέου λογαριασμού",
             noAccount: "Δεν έχετε λογαριασμό;",
@@ -135,7 +135,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Επιβεβαιώστε τον κωδικό πρόσβασής σας"
         },
         es: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Inicie sesión en su cuenta",
             registerTitle: "Registrar una cuenta nueva",
             noAccount: "¿No tienes una cuenta?",
@@ -153,7 +153,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Confirme su contraseña"
         },
         fa: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "وارد حساب کاربری خود شوید",
             registerTitle: "ثبت نام حساب جدید",
             noAccount: "حساب کاربری ندارید؟",
@@ -170,7 +170,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "رمز عبور خود را تأیید کنید"
         },
         fi: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Kirjaudu tilillesi",
             registerTitle: "Rekisteröi uusi tili",
             noAccount: "Puuttuuko tili?",
@@ -188,7 +188,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Vahvista salasanasi"
         },
         fr: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Connectez-vous à votre compte",
             registerTitle: "Créer un nouveau compte",
             doRegister: "S'inscrire",
@@ -206,7 +206,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Confirmez votre mot de passe"
         },
         hu: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Jelentkezzen be fiókjába",
             registerTitle: "Új fiók regisztrálása",
             noAccount: "Nincs még fiókja?",
@@ -223,7 +223,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Erősítse meg a jelszavát"
         },
         it: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Accedi al tuo account",
             registerTitle: "Registra un nuovo account",
             noAccount: "Non hai un account?",
@@ -240,7 +240,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Conferma la tua password"
         },
         ja: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "アカウントにログイン",
             registerTitle: "新規アカウント登録",
             noAccount: "アカウントをお持ちでないですか？",
@@ -258,7 +258,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "パスワードを確認してください"
         },
         ka: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "შედით თქვენს ანგარიშში",
             registerTitle: "ახალი ანგარიშის რეგისტრაცია",
             noAccount: "არ გაქვთ ანგარიში?",
@@ -275,7 +275,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "დაადასტურეთ თქვენი პაროლი"
         },
         lt: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Prisijunkite prie savo paskyros",
             registerTitle: "Registruoti naują paskyrą",
             noAccount: "Neturite paskyros?",
@@ -292,7 +292,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Patvirtinkite savo slaptažodį"
         },
         lv: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Pieteikties savā kontā",
             registerTitle: "Reģistrēt jaunu kontu",
             noAccount: "Nav konta?",
@@ -309,7 +309,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Apstipriniet savu paroli"
         },
         nl: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Inloggen op uw account",
             registerTitle: "Registreer een nieuw account",
             noAccount: "Heeft u nog geen account?",
@@ -326,7 +326,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Bevestig uw wachtwoord"
         },
         no: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Logg inn på kontoen din",
             registerTitle: "Registrer en ny konto",
             noAccount: "Har du ikke konto?",
@@ -343,7 +343,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Bekreft passordet ditt"
         },
         pl: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Zaloguj się do swojego konta",
             registerTitle: "Zarejestruj nowe konto",
             noAccount: "Nie masz konta?",
@@ -360,7 +360,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Potwierdź swoje hasło"
         },
         pt: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Faça login na sua conta",
             registerTitle: "Registar uma nova conta",
             noAccount: "Não tem uma conta?",
@@ -377,7 +377,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Confirme a sua palavra-passe"
         },
         "pt-BR": {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Entre na sua conta",
             registerTitle: "Cadastrar uma nova conta",
             noAccount: "Não tem uma conta?",
@@ -394,7 +394,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Confirme sua senha"
         },
         ru: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Войти в свой аккаунт",
             registerTitle: "Регистрация нового аккаунта",
             noAccount: "Нет аккаунта?",
@@ -411,7 +411,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Подтвердите пароль"
         },
         sk: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Prihláste sa do svojho účtu",
             registerTitle: "Zaregistrovať nový účet",
             noAccount: "Nemáte účet?",
@@ -428,7 +428,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Potvrďte svoje heslo"
         },
         sv: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Logga in på ditt konto",
             registerTitle: "Registrera ett nytt konto",
             noAccount: "Har du inget konto?",
@@ -445,7 +445,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Bekräfta ditt lösenord"
         },
         th: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "เข้าสู่ระบบบัญชีของคุณ",
             registerTitle: "ลงทะเบียนบัญชีใหม่",
             noAccount: "ยังไม่มีบัญชีใช่ไหม?",
@@ -462,7 +462,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "ยืนยันรหัสผ่านของคุณ"
         },
         tr: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Hesabınıza giriş yapın",
             registerTitle: "Yeni bir hesap oluşturun",
             noAccount: "Hesabınız yok mu?",
@@ -479,7 +479,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Şifrenizi onaylayın"
         },
         uk: {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "Увійдіть у свій акаунт",
             registerTitle: "Зареєструвати новий акаунт",
             noAccount: "Немає акаунта?",
@@ -496,7 +496,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "Підтвердьте пароль"
         },
         "zh-CN": {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "登录您的账号",
             registerTitle: "注册新账号",
             noAccount: "还没有账号？",
@@ -513,7 +513,7 @@ const { I18nProvider, useI18n } = i18nBuilder
             confirmPasswordPlaceholder: "请确认密码"
         },
         "zh-TW": {
-            welcomeMessage: "One VISI account for the hub, the Detection Lab and your lab machines.",
+            welcomeMessage: "Build with your community.",
             loginAccountTitle: "登入您的帳號",
             registerTitle: "註冊新帳號",
             noAccount: "還沒有帳號？",
