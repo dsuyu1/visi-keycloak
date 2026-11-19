@@ -23,7 +23,11 @@ export default defineConfig({
                 { name: "SHADCN_THEME_BASE", default: "neutral" },
                 { name: "SHADCN_THEME_RADIUS", default: "default" },
                 { name: "SHADCN_THEME_FONT", default: "geist" },
-                { name: "SHADCN_THEME_PLACEHOLDER", default: "true" }
+                { name: "SHADCN_THEME_PLACEHOLDER", default: "true" },
+                // Where the Home button and the logo go. Fixed on purpose: the
+                // upstream Home button used the client's Base URL, which sent
+                // people somewhere other than the VISI site.
+                { name: "VISI_HOME_URL", default: "https://visiutrgv.org/" }
             ]
         })
     ],
