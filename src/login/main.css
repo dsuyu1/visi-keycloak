@@ -83,3 +83,15 @@
     background: transparent;
     min-height: 100vh;
 }
+
+/* The card's top strip is Keycloak blue by default. */
+.login-pf body.visi-login-bg .card-pf {
+    border-top-color: var(--visi-accent);
+}
+
+/* The "New user? Register" footer pulls out 40px each side but the card is only
+   padded 20px, so it stuck out past the card. Match the padding. */
+.login-pf body.visi-login-bg .card-pf #kc-info {
+    margin-left: -20px;
+    margin-right: -20px;
+}
