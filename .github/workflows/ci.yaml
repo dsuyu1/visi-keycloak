@@ -14,7 +14,30 @@ jobs:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
             - uses: bahmutov/npm-install@v1
-            - run: npm run build-keycloak-theme
+            # Keycloakify builds the jar with Maven, which pulls its plugins
+            # from Maven Central into node_modules/.cache. npm ci wipes that
+            # folder, so without this cache every run downloads them again and
+            # Central answers GitHub's shared runners with 429 Too Many
+            # Requests. Restored after npm install so it isn't wiped.
+            - uses: actions/cache@v4
+              with:
+                  path: node_modules/.cache/keycloakify/.m2
+                  key: keycloakify-m2-${{ hashFiles('package-lock.json') }}
+                  restore-keys: keycloakify-m2-
+            # A cold cache can still be throttled. Retry after a pause, but
+            # only when Maven failed to download something; a real build
+            # error fails straight away.
+            - name: Build the theme jar
+              # Explicit bash runs with pipefail, so the tee keeps npm's exit code.
+              shell: bash
+              run: |
+                  for attempt in 1 2 3; do
+                      npm run build-keycloak-theme 2>&1 | tee build.log && exit 0
+                      grep -qE "Could not transfer artifact|could not be resolved" build.log || exit 1
+                      [ "$attempt" = 3 ] && exit 1
+                      echo "::warning::Maven download failed (attempt $attempt); retrying in $((attempt * 45))s"
+                      sleep $((attempt * 45))
+                  done
 
     check_if_version_upgraded:
         name: Check if version upgrade
@@ -44,7 +67,30 @@ jobs:
             - uses: actions/checkout@v4
             - uses: actions/setup-node@v4
             - uses: bahmutov/npm-install@v1
-            - run: npm run build-keycloak-theme
+            # Keycloakify builds the jar with Maven, which pulls its plugins
+            # from Maven Central into node_modules/.cache. npm ci wipes that
+            # folder, so without this cache every run downloads them again and
+            # Central answers GitHub's shared runners with 429 Too Many
+            # Requests. Restored after npm install so it isn't wiped.
+            - uses: actions/cache@v4
+              with:
+                  path: node_modules/.cache/keycloakify/.m2
+                  key: keycloakify-m2-${{ hashFiles('package-lock.json') }}
+                  restore-keys: keycloakify-m2-
+            # A cold cache can still be throttled. Retry after a pause, but
+            # only when Maven failed to download something; a real build
+            # error fails straight away.
+            - name: Build the theme jar
+              # Explicit bash runs with pipefail, so the tee keeps npm's exit code.
+              shell: bash
+              run: |
+                  for attempt in 1 2 3; do
+                      npm run build-keycloak-theme 2>&1 | tee build.log && exit 0
+                      grep -qE "Could not transfer artifact|could not be resolved" build.log || exit 1
+                      [ "$attempt" = 3 ] && exit 1
+                      echo "::warning::Maven download failed (attempt $attempt); retrying in $((attempt * 45))s"
+                      sleep $((attempt * 45))
+                  done
             - uses: softprops/action-gh-release@v2
               with:
                   name: Release v${{ needs.check_if_version_upgraded.outputs.to_version }}
