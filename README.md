@@ -12,7 +12,7 @@ Most files under `src/` are copied in from the npm package by `npm install` (`ke
 
 | File | Change |
 | --- | --- |
-| `login/components/Template/layouts/TwoColumnLayout.tsx` | The photo fills the left half, with the logo, app name and welcome line over it. The logo links to the VISI site. The form is on the right. |
+| `login/components/Template/layouts/TwoColumnLayout.tsx` | The photos fill the left half and crossfade from one to the next, with the logo, app name and welcome line over them. The logo links to the VISI site. The form is on the right. |
 | `login/components/Template/TemplateContent.tsx` | The logo block above the form (shown below `lg`) uses the app name, not the realm name, and links to the VISI site. |
 | `login/components/Template/TemplateTopBar.tsx` | The Home button goes to `VISI_HOME_URL` instead of the Keycloak client's Base URL. |
 | `login/components/Template/theme/Themes.ts` | The `orange` preset is VISI orange, `#f4572d`. |
@@ -20,7 +20,9 @@ Most files under `src/` are copied in from the npm package by `npm install` (`ke
 
 To change another file, take ownership of it first, for example `npx keycloakify own --path login/pages/login/Form.tsx`.
 
-The look is set in `vite.config.ts` as defaults for the `SHADCN_THEME_*` settings: logo, app name, layout, side image, colour preset, base palette, radius and font. Setting an environment variable with the same name on the Keycloak container overrides a default without a rebuild. Files in `public/` (the logo and the photo) are referenced as `%BASE_URL%/<file>`.
+The look is set in `vite.config.ts` as defaults for the `SHADCN_THEME_*` settings: logo, app name, layout, side image, colour preset, base palette, radius and font. Setting an environment variable with the same name on the Keycloak container overrides a default without a rebuild. Files in `public/` (the logo and the photos) are referenced as `%BASE_URL%/<file>`.
+
+`SHADCN_THEME_SIDE_IMAGE_URL` takes a comma-separated list of photos, shown in that order, and `VISI_SIDE_IMAGE_SECONDS` (default 8) sets how long each one stays. Only the photo on screen and the next one are downloaded; the show pauses while the tab is in the background and on screens too narrow for the photo column, and stays on the first photo for people who ask for reduced motion. The upstream `image-aside` layout expects a single URL, so keep one photo if you switch to it.
 
 `VISI_HOME_URL` (default `https://visiutrgv.org/`) is where the Home button and the logo go.
 

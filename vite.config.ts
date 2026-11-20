@@ -18,7 +18,20 @@ export default defineConfig({
                 { name: "SHADCN_THEME_LOGO_DARK_URL", default: "%BASE_URL%/visi-mark.png" },
                 { name: "SHADCN_THEME_APP_NAME", default: "VISI" },
                 { name: "SHADCN_THEME_LAYOUT", default: "two-column" },
-                { name: "SHADCN_THEME_SIDE_IMAGE_URL", default: "%BASE_URL%/login-bg.jpg" },
+                // Comma-separated: the photos crossfade in this order.
+                {
+                    name: "SHADCN_THEME_SIDE_IMAGE_URL",
+                    default: [
+                        "%BASE_URL%/login-bg.jpg",
+                        "%BASE_URL%/login-mountains.jpg",
+                        "%BASE_URL%/login-court.jpg",
+                        "%BASE_URL%/login-street.jpg",
+                        "%BASE_URL%/login-cat.jpg",
+                        "%BASE_URL%/login-aerial.jpg"
+                    ].join(",")
+                },
+                // How long each photo stays before fading to the next.
+                { name: "VISI_SIDE_IMAGE_SECONDS", default: "8" },
                 { name: "SHADCN_THEME_PRESET", default: "orange" },
                 { name: "SHADCN_THEME_BASE", default: "neutral" },
                 { name: "SHADCN_THEME_RADIUS", default: "default" },

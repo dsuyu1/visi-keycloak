@@ -8,11 +8,14 @@
 // VISI: the photo fills the left half with the logo and welcome line over it,
 // and the form sits on the right. Below lg the photo is dropped and the form's
 // own logo block (TemplateContent) shows instead.
+//
+// SHADCN_THEME_SIDE_IMAGE_URL may list several photos, comma-separated. They
+// crossfade every VISI_SIDE_IMAGE_SECONDS (see SideImages below).
 
 import { useI18n } from "@/login/i18n";
 import { useKcContext } from "@/login/KcContext";
 import { resolveAssetUrl } from "@/login/shared/resolveAssetUrl";
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { TemplateTopBar } from "../TemplateTopBar";
 
 export function TwoColumnLayout(props: { content: ReactNode; logoUrl: string }) {
@@ -22,7 +25,13 @@ export function TwoColumnLayout(props: { content: ReactNode; logoUrl: string }) 
 
     const { msg } = useI18n();
 
-    const imageUrl = resolveAssetUrl(kcContext.properties.SHADCN_THEME_SIDE_IMAGE_URL);
+    const imageUrls = (kcContext.properties.SHADCN_THEME_SIDE_IMAGE_URL ?? "")
+        .split(",")
+        .map(url => url.trim())
+        .filter(Boolean)
+        .map(url => resolveAssetUrl(url))
+        .filter((url): url is string => Boolean(url));
+    const seconds = Number(kcContext.properties.VISI_SIDE_IMAGE_SECONDS) || 8;
     const appName =
         kcContext.properties.SHADCN_THEME_APP_NAME ||
         kcContext.realm.displayName ||
@@ -33,13 +42,7 @@ export function TwoColumnLayout(props: { content: ReactNode; logoUrl: string }) 
     return (
         <div className="grid min-h-svh lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
             <aside className="relative hidden overflow-hidden bg-neutral-950 lg:block">
-                {imageUrl && (
-                    <img
-                        src={imageUrl}
-                        alt=""
-                        className="absolute inset-0 h-full w-full object-cover"
-                    />
-                )}
+                <SideImages urls={imageUrls} seconds={seconds} />
                 <div
                     aria-hidden="true"
                     className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/45"
@@ -68,5 +71,64 @@ export function TwoColumnLayout(props: { content: ReactNode; logoUrl: string }) 
                 </div>
             </div>
         </div>
+    );
+}
+
+/**
+ * The photos behind the left column, crossfading one to the next.
+ *
+ * Only the photo on screen and the one after it are in the page, so a visitor
+ * who signs in quickly downloads one or two photos, not all of them. The show
+ * moves on only once the next photo has loaded, pauses while the tab or the
+ * column is hidden, and stays on the first photo for people who ask for
+ * reduced motion.
+ */
+function SideImages(props: { urls: string[]; seconds: number }) {
+    const { urls, seconds } = props;
+
+    const [active, setActive] = useState(0);
+    // The furthest photo shown so far; everything up to the one after it stays mounted.
+    const [reached, setReached] = useState(0);
+    const loaded = useRef<boolean[]>([]);
+
+    useEffect(() => {
+        if (urls.length < 2) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        // The column is hidden below lg (Tailwind's 1024px), so phones keep the first photo.
+        const wide = window.matchMedia("(min-width: 1024px)");
+
+        const timer = window.setInterval(() => {
+            if (document.hidden || !wide.matches) return;
+            setActive(current => {
+                const next = (current + 1) % urls.length;
+                return loaded.current[next] ? next : current;
+            });
+        }, seconds * 1000);
+
+        return () => window.clearInterval(timer);
+    }, [urls.length, seconds]);
+
+    useEffect(() => setReached(furthest => Math.max(furthest, active)), [active]);
+
+    const mounted = Math.min(reached + 2, urls.length);
+
+    return (
+        <>
+            {urls.slice(0, mounted).map((url, index) => (
+                <img
+                    key={url}
+                    src={url}
+                    alt=""
+                    decoding="async"
+                    onLoad={() => {
+                        loaded.current[index] = true;
+                    }}
+                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1500ms] ease-in-out motion-reduce:transition-none ${
+                        index === active ? "opacity-100" : "opacity-0"
+                    }`}
+                />
+            ))}
+        </>
     );
 }
