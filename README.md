@@ -15,7 +15,7 @@ Most files under `src/` are copied in from the npm package by `npm install` (`ke
 | `login/components/Template/layouts/TwoColumnLayout.tsx` | The photos fill the left half and crossfade from one to the next, with the logo, app name and welcome line over them. The logo links to the VISI site. The form is on the right. |
 | `login/components/Template/TemplateContent.tsx` | The logo block above the form (shown below `lg`) uses the app name, not the realm name, and links to the VISI site. |
 | `login/components/Template/TemplateTopBar.tsx` | The Home button goes to `VISI_HOME_URL` instead of the Keycloak client's Base URL. |
-| `login/components/Template/theme/Themes.ts` | The `orange` preset is VISI orange, `#f4572d`. |
+| `login/components/Template/theme/Themes.ts` | The neutral palette and orange buttons follow the VISI Charlotte light and dark themes. |
 | `login/i18n.ts` | The welcome line, and "Sign in" instead of "Login". |
 
 To change another file, take ownership of it first, for example `npx keycloakify own --path login/pages/login/Form.tsx`.
