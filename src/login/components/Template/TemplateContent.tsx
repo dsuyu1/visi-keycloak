@@ -55,7 +55,7 @@ export function TemplateContent(props: TemplateContentProps) {
         auth.showUsername &&
         !auth.showResetCredentials
     ) ? (
-        <h1 className="text-xl">{headerNode}</h1>
+        <h1 className="text-[clamp(2rem,3.35vw,3.2rem)] leading-[1.06] font-semibold tracking-[-0.057em]">{headerNode}</h1>
     ) : (
         <div id="kc-username" className="flex items-center justify-between gap-2">
             <div className="flex gap-4 items-center">
@@ -93,7 +93,7 @@ export function TemplateContent(props: TemplateContentProps) {
     );
 
     return (
-        <Card className={cardClassName}>
+        <Card className={cn("rounded-2xl border-0 shadow-none", cardClassName)}>
             <CardHeader>
                 <div
                     className={cn(

@@ -25,38 +25,38 @@ import type {
 export const basePalettes: Record<BasePalette, ModeTokens<BaseSurfaceTokens>> = {
     neutral: {
         light: {
-            background: "oklch(1 0 0)",
-            foreground: "oklch(0.145 0 0)",
-            card: "oklch(1 0 0)",
-            cardForeground: "oklch(0.145 0 0)",
-            popover: "oklch(1 0 0)",
-            popoverForeground: "oklch(0.145 0 0)",
-            secondary: "oklch(0.97 0 0)",
-            secondaryForeground: "oklch(0.205 0 0)",
-            muted: "oklch(0.97 0 0)",
-            mutedForeground: "oklch(0.556 0 0)",
-            accent: "oklch(0.97 0 0)",
-            accentForeground: "oklch(0.205 0 0)",
-            border: "oklch(0.922 0 0)",
-            input: "oklch(0.922 0 0)",
-            ring: "oklch(0.708 0 0)"
+            background: "#ffffff",
+            foreground: "#1c1c1c",
+            card: "#f7f9fb",
+            cardForeground: "#1c1c1c",
+            popover: "#ffffff",
+            popoverForeground: "#1c1c1c",
+            secondary: "#e3f5ff",
+            secondaryForeground: "#1c1c1c",
+            muted: "#eceef0",
+            mutedForeground: "#555555",
+            accent: "#e5ecf6",
+            accentForeground: "#1c1c1c",
+            border: "#e7e7e7",
+            input: "#aaaaaa",
+            ring: "#b33a11"
         },
         dark: {
-            background: "oklch(0.145 0 0)",
-            foreground: "oklch(0.985 0 0)",
-            card: "oklch(0.205 0 0)",
-            cardForeground: "oklch(0.985 0 0)",
-            popover: "oklch(0.205 0 0)",
-            popoverForeground: "oklch(0.985 0 0)",
-            secondary: "oklch(0.269 0 0)",
-            secondaryForeground: "oklch(0.985 0 0)",
-            muted: "oklch(0.269 0 0)",
-            mutedForeground: "oklch(0.708 0 0)",
-            accent: "oklch(0.269 0 0)",
-            accentForeground: "oklch(0.985 0 0)",
-            border: "oklch(1 0 0 / 10%)",
-            input: "oklch(1 0 0 / 15%)",
-            ring: "oklch(0.556 0 0)"
+            background: "#1c1c1c",
+            foreground: "#ffffff",
+            card: "#272727",
+            cardForeground: "#ffffff",
+            popover: "#272727",
+            popoverForeground: "#ffffff",
+            secondary: "#313131",
+            secondaryForeground: "#ffffff",
+            muted: "#313131",
+            mutedForeground: "#bdbdbd",
+            accent: "#313131",
+            accentForeground: "#ffffff",
+            border: "#404040",
+            input: "#767676",
+            ring: "#ff9d5c"
         }
     },
     stone: {
@@ -375,15 +375,15 @@ export const themePresets: Record<ThemePreset, ModeTokens<AccentTokens>> = {
             primaryForeground: "oklch(0.986 0.031 120.757)"
         }
     },
-    // VISI: the brand orange (#f4572d) in both modes, as on the hub and the lab.
+    // VISI Snow buttons use separate orange fills for light and dark.
     orange: {
         light: {
-            primary: "#f4572d",
+            primary: "#cc4317",
             primaryForeground: "#ffffff"
         },
         dark: {
-            primary: "#f4572d",
-            primaryForeground: "#ffffff"
+            primary: "#ff9d5c",
+            primaryForeground: "#1c1c1c"
         }
     },
     pink: {
