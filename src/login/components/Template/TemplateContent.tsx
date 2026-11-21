@@ -55,7 +55,15 @@ export function TemplateContent(props: TemplateContentProps) {
         auth.showUsername &&
         !auth.showResetCredentials
     ) ? (
-        <h1 className="text-[clamp(2rem,3.35vw,3.2rem)] leading-[1.06] font-semibold tracking-[-0.057em]">{headerNode}</h1>
+        <h1
+            className={
+                kcContext.pageId === "login.ftl"
+                    ? "text-[clamp(1.375rem,2vw,1.625rem)] leading-tight font-semibold tracking-tight"
+                    : "text-[clamp(2rem,3.35vw,3.2rem)] leading-[1.06] font-semibold tracking-[-0.057em]"
+            }
+        >
+            {headerNode}
+        </h1>
     ) : (
         <div id="kc-username" className="flex items-center justify-between gap-2">
             <div className="flex gap-4 items-center">
