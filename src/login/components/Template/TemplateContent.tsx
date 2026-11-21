@@ -200,6 +200,17 @@ export function TemplateContent(props: TemplateContentProps) {
                     )}
 
                     {displayInfo && <div className="text-center text-sm">{infoNode}</div>}
+                    {["login.ftl", "login-username.ftl", "login-password.ftl"].includes(kcContext.pageId) && (
+                        <p className="text-center text-sm text-muted-foreground">
+                            Outside UTRGV?{" "}
+                            <a
+                                href="https://access.visiutrgv.org/request"
+                                className="text-foreground underline underline-offset-4 hover:text-primary"
+                            >
+                                Request a VISI account
+                            </a>
+                        </p>
+                    )}
                 </div>
             </CardContent>
         </Card>
